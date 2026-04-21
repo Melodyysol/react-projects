@@ -48,7 +48,7 @@ function App() {
        className='flex flex-col gap-4 max-h-screen overflow-scroll w-85 px-5' 
        ref={todoRef}
       >
-       {newTodo.map(todo => (
+       {newTodo?.map(todo => (
          <TodoItem 
           key={todo.id} 
           todoId={todo.id}

@@ -1,4 +1,29 @@
 @import "tailwindcss";
+
+@layer components {
+  .w-100 {
+    width: 100%;
+  }
+  .w-85 {
+    width: 85%;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .animate-fade-out {
+    animation: fade-out 1s ease-out forwards;
+  }
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
