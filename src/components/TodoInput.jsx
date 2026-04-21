@@ -33,7 +33,7 @@ function TodoInput({ setNewTodo }) {
   return (
     <div className='flex flex-col gap-4 bg-gray-800 rounded-2xl p-5' onKeyDown={handleKeyDown}>
       <input 
-        className='bg-gray-500 rounded p-2 outline-none'
+        className='bg-gray-500 rounded p-2 outline-none w-[16rem]'
         ref={inputRef}
         type="text" 
         placeholder="Enter a todo item"
@@ -41,7 +41,7 @@ function TodoInput({ setNewTodo }) {
         onChange={e => setInputValue(e.target.value)}
       />
       <input type="date"
-        className='bg-gray-600 rounded p-2 outline-none'
+        className='bg-gray-600 rounded p-2 outline-none cursor-pointer'
         placeholder="Due date"
         value={dueDate}
         onChange={e => setDueDate(e.target.value)}
