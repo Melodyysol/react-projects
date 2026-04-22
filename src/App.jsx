@@ -14,6 +14,7 @@ function App() {
     }
   })
   const [deletedId, setDeletedId] = useState(null)
+  const [editedId, setEditedId] = useState(null)
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(newTodo))
@@ -28,11 +29,21 @@ function App() {
   }, [newTodo])
 
   function removeTodo(id) {
-    setDeletedId(id)
+    setDeletedId(id);
     setTimeout(() => {
       setNewTodo(prevTodos => prevTodos.filter(todo => todo.id !== id))
       setDeletedId(null)
     }, 1000);
+  }
+
+  function editTodo(id) {
+    setEditedId(id)
+    const newText = prompt("Edit your todo:")
+    if (newText && newText.trim() !== "") {
+      setNewTodo(prevTodos => prevTodos.map(todo => 
+        todo.id === id ? { ...todo, text: newText } : todo
+      ))
+    }
   }
 
 
@@ -55,7 +66,9 @@ function App() {
           text={todo.text} 
           date={todo.date} 
           onDelete={removeTodo}
+          onEdit={editTodo}
           isDeleted={deletedId === todo.id}
+          isEdited={editedId === todo.id}
          />
        ))}
       </ul>
